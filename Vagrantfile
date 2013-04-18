@@ -57,8 +57,8 @@ Vagrant.configure("2") do |config|
     chef.json = {}
 
     chef.run_list = [
-      "recipe[apt::default]",
-      "recipe[pebbles::default]"
+      "recipe[apt]",
+      "recipe[pebbles]"
     ]
   end
 end
