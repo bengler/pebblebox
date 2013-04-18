@@ -32,4 +32,4 @@ Connect to PostgreSQL running inside the VM:
 
     $ psql -h 192.168.33.10 -U postgres -W -p 5432 [database]
 
-The default password for the `postgres` setup by the pebble cookbook is `G8riPos1`.
+The default password for the `postgres` user setup by the pebble cookbook is `G8riPos1`.
