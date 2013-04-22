@@ -34,6 +34,9 @@ Vagrant.configure("2") do |config|
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
 
+  # Enable SSH forward agent
+  config.ssh.forward_agent = true
+
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
@@ -58,7 +61,8 @@ Vagrant.configure("2") do |config|
 
     chef.run_list = [
       "recipe[apt]",
-      "recipe[pebbles]"
+      "recipe[pebbles]",
+      "recipe[pebbles::checkpoint]",
     ]
   end
 end
