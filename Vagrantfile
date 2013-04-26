@@ -60,9 +60,10 @@ Vagrant.configure("2") do |config|
     chef.json = {}
 
     chef.run_list = [
-      "recipe[apt]",
+#      "recipe[apt]",
       "recipe[pebbles]",
       "recipe[pebbles::checkpoint]",
+      "recipe[pebbles::brow_up]"
     ]
   end
 end
