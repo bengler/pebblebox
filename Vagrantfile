@@ -57,12 +57,17 @@ Vagrant.configure("2") do |config|
 
   # Chef-solo
   config.vm.provision :chef_solo do |chef|
-    chef.json = {}
+    chef.json = {
+      'pebbles' => {
+        'repositories' => '/vagrant/src',
+      }
+    }
 
     chef.run_list = [
 #      "recipe[apt]",
       "recipe[pebbles]",
       "recipe[pebbles::checkpoint]",
+      "recipe[pebbles::grove]",
       "recipe[pebbles::brow_up]"
     ]
   end
