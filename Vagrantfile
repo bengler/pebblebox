@@ -13,8 +13,9 @@ Vagrant.configure("2") do |config|
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  # config.vm.box_url = "http://dl.dropbox.com/u/1537815/precise64.box"
-  config.vm.box_url = "https://s3-us-west-2.amazonaws.com/squishy.vagrant-boxes/precise64_squishy_2013-02-09.box"
+   config.vm.box_url = "http://dl.dropbox.com/u/1537815/precise64.box"
+#   config.vm.box_url = "https://s3-us-west-2.amazonaws.com/squishy.vagrant-boxes/precise64_squishy_2013-02-09.box"
+ #  config.vm.box_url = "https://dl.dropbox.com/u/14292474/vagrantboxes/precise64-ruby-1.9.3-p194.box"
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -61,15 +62,14 @@ Vagrant.configure("2") do |config|
   config.vm.provision :chef_solo do |chef|
     chef.json = {
       'pebbles' => {
-        'repositories' => '/vagrant/src',
+        'repositories' => '/vagrant/src'
       }
     }
 
     chef.run_list = [
-#      "recipe[apt]",
+      "recipe[apt]",
       "recipe[pebbles]",
       "recipe[pebbles::checkpoint]",
-      "recipe[pebbles::grove]",
       "recipe[pebbles::brow_up]"
     ]
   end
