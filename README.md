@@ -12,6 +12,10 @@ Development environment for Pebblestack using a virtual machine with Vagrant.
 
     $ vagrant plugin install berkshelf-vagrant
 
+    This must NOT be done in the pebblebox directory, if you run it there, you 
+    will get an error message caused by the Vagrantfile:
+    Message: cannot load such file -- berkshelf/vagrant
+
 - Clone Pebblestack code repositories:
 
     $ mkdir src
